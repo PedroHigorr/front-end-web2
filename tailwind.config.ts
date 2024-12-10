@@ -11,9 +11,17 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        cpowerPurple: "#4F359B",
+        cmount: "#7D6F86",
         cgrey: "#F2F2F2",
         cdark: "#0C0910",
-        cpurple: "#CBD5FF"
+        cpurple: "#585191",
+        roseQuartz: "#AAA1C8",
+        russianViolet: "#280434",
+        thistle: "#D5C6E0",
+        lavanderBlush: "#F5E6E8",
+        mountbatten: "#967AA1",
+
       },
     },
   },

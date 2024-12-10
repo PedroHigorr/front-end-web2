@@ -1,10 +1,10 @@
 
-import Register from "@/app/cadastro/page"
+import Header  from "@/components/header";
 
 export default function Home() {
   return (
    <>
-    <Register/>
+    <Header />
    </>
   );
 }
