@@ -20,3 +20,7 @@ export default function InputField({ id, label, type = "text", value, onChange }
         </div>
     );
 }
+
+// Link da referência:
+
+// https://flowbite-com.translate.goog/docs/forms/floating-label/?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt-BR&_x_tr_pto=sc

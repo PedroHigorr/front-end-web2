@@ -1,6 +1,6 @@
 'use client'
 
-import HeaderUser from "@/components/components_user/headerUser"
+import HeaderProject from "@/components/components_project/headerProject";
 import { useState } from "react"
 import { useRouter } from "next/navigation";
 import InputField from "@/components/inputFields";
@@ -56,7 +56,7 @@ export default function update() {
 
         return (
             <>
-            <HeaderUser/>
+            <HeaderProject/>
                 <div className="flex justify-center items-center h-screen bg-cdark"> 
                     <div className="bg-cgrey text-cdark p-10 rounded-md shadow-md "> 
                         <h1 className="text-3xl font-semibold text-center"> Verificar Dados </h1>
