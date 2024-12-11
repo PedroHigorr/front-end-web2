@@ -1,5 +1,4 @@
-
-import HeaderUser from "@/components/components_user/headerUser";
+import HeaderUser from "@/components/components_user/headerUser"
 
 export default function Home() {
   return (
