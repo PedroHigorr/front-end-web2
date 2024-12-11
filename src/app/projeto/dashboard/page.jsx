@@ -1,9 +1,10 @@
-import HeaderUser from "@/components/components_user/headerUser";
+
+import HeaderProject from '@/components/components_project/headerProject'
 
 export default function Home() {
   return (
    <>
-    <HeaderUser />
+    <HeaderProject />
    </>
   );
 }

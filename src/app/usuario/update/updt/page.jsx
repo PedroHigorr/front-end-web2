@@ -1,22 +1,40 @@
 'use client'
 
 import HeaderUser from "@/components/components_user/headerUser"
-import { useState } from "react"
-import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react"
+import { useRouter, useSearchParams } from "next/navigation";
 import InputField from "@/components/inputFields";
 
 
-export default function Register() {
+export default function update() {
 
-
+  const router = useRouter();
+  const searchParams = useSearchParams()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [tel, setTel] = useState('')
-  const router = useRouter();
+  const [id, setId] = useState(null);
 
-  const onSubmit = async () => {
-    const r = await fetch('http://localhost:4000/user', {
-      method: "POST",
+  //artigo usado para resolver esse b.o. 
+  //https://thomasstep.com/blog/working-with-nextjs-routers-query
+
+  useEffect(() => {
+
+    const idRouter = searchParams.get("id_router");
+    if (idRouter) {
+      setId(idRouter);
+      console.log("ID capturado da URL:", idRouter); // Para verificar no console
+    }
+
+  }, [searchParams]);
+
+
+  const submit = async () => {
+
+    console.log("ID: ", id)
+
+    const r = await fetch(`http://localhost:4000/user/${id}`, {
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, tel })
     })
@@ -27,8 +45,7 @@ export default function Register() {
 
       console.log(data.message)
 
-
-      alert("Usuário cadastrado! Redirecionando para home...");
+      alert("Usuário Atualizado! Redirecionando para home...");
 
       router.push(`/`)
 
@@ -52,12 +69,13 @@ export default function Register() {
     }
   }
 
+
   return (
     <>
       <HeaderUser />
       <div className="flex justify-center items-center h-screen bg-cdark">
         <div className="bg-cgrey text-cdark p-10 rounded-md shadow-md ">
-          <h1 className="text-3xl font-semibold text-center"> Cadastrar </h1>
+          <h1 className="text-3xl font-semibold text-center"> Atualizar </h1>
 
           <div className="flex flex-col gap-1 w-[300px]">
 
@@ -68,6 +86,7 @@ export default function Register() {
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
+
 
             <InputField
               id="email"
@@ -86,7 +105,7 @@ export default function Register() {
 
           </div>
 
-          <button onClick={onSubmit} className="w-full mt-10 bg-slate-300">Cadastrar</button>
+          <button onClick={submit} className="w-full mt-10 bg-slate-300">Atualizar</button>
 
         </div>
       </div>
